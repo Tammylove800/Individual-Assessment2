@@ -4,7 +4,7 @@ function logout_user(){
         localStorage.setItem("user", null);
 
         alert("You have been logged out.");
-        window.location.href = "Home.html";
+        window.location.href = "index.html";
     } else {
         alert("Logout canceled.");
     }
