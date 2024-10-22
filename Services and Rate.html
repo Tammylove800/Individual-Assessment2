@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="Style.css" />
+</head>
+<body>
+    <nav>
+        <img src="Images/logo.jpg" alt="Company Logo" class="Logo">
+        <div>
+          <a href="Home.html">HOME</a>
+          <a href="Login.html">LOGIN</a>
+          <a href="Services and Rate.html">SERVICES/RATE</a>
+          <a href="Invoice.html">INVOICE</a>
+          <a href="AboutUs.html">ABOUT US</a>
+        </div>
+    </nav><br><br>
+    <h3>Services Offered</h3><br>
+    <section id="Service">
+        <div>
+            <h3>Pool Cleaning</h3>
+            <img src="./Images/pool_clean.jpg" alt="">
+            <p>Regular clean to remove dirt,leaves and debris</p>
+        </div>
+    
+        <div>
+            <h3>Equipment Inspection</h3>
+            <video src="./Images/maintenace.mp4"autoplay muted width="250px" ></video>
+            <p>Ensuring pumps, and heaters function optimally</p>
+
+    
+        </div>
+    
+        <div>
+            <h3>Chemical Balance</h3>
+            <img src="./Images/sevice1.jpg" alt="">
+            <p>Maintaining safe  and healthy water chemistry</p>
+    
+        </div>
+    
+        <div>
+            <h3>Customer Maintenance Plan</h3>
+            <img src="./Images/cust_plan.jpg" alt="">
+            <p>Tailored schedules to fit your pool's unique needs</p>
+    
+        </div>
+
+    </section>
+
+      <section id="Rate">
+        <h2>Aqua Care Plus Pricing Packages</h2>
+        <div>
+          <div class="package">
+              <div>
+                <h3>Basic Package($2,765 JMD)</h3>
+                <ul>
+                  <li>Vacumming</li>
+                  <li>Brushing of pool tiles and floor</li>
+                  <li>Water chemistry testing</li>
+                  <li>Adding chemicals</li>
+                  <li>Detailed report with water chemistry level</li>
+                  <li>Backwashing/rinsing of filters</li>
+                </ul>
+                <p><b>Additional Labor Cost Fee: $3.75 USD/30mins</b></p>
+              </div>
+          
+              <div>
+                <input placeholder="Select Quantity" type="number" min="1" max="5" >
+                <button id="Package-1">Add To Cart</button>
+              </div>
+            </div>
+            
+
+          <div class="package">
+            <div>
+              <h3>Standard Package  ($6,975 JMD)weekly</h3>
+              <ul>
+                <li>Includes Basic Package(2x/weekly)</li>
+                <li>Algaecide supplied each week</li>
+              </ul>
+                <p><b>Additional Labor Cost Fee: $3.75 USD/30mins</b></p>
+              
+            </div>
+            <div>
+              <input placeholder="Select Quantity" type="number" min="1" max="5">
+              <button id="Package-2">Add To Cart</button>
+            </div>
+            </div>
+            
+
+          <div class="package">
+              <div>
+                <h3>Basic Water Treatment  ($7,750 JMD)</h3>
+                <ul>
+                  <li>Alkalinity adjusting</li>
+                  <li>pH adjusting</li>
+                  <li>Calcium hardness adjusting</li>
+                  <li>Chlorine adjusting</li>
+                  <li>Cyanuric acid adjusting</li>
+                  <li>Alagaecide application</li>
+                  <li>Detailed report with water chemistry level</li>
+                </ul>
+              </div>
+              <div>
+                <input placeholder="Select Quantity" type="number" min="1" max="5">
+                <button id="Package-3">Add To Cart</button>
+              </div>
+            </div>
+            
+
+          <div class="package">
+              <div>
+                <h3>Standard Water Treatment ($11,625 JMD)</h3>
+                <ul>
+                  <li>Includes Basic Water Treatment Package</li>
+                  <li>Shocking Pool</li>
+                  <li>Detailed report with water chemistry level</li>
+                </ul><br>
+                <p><b>Treatment plan last 2 days. Labour cost not included</b></p>
+              </div>
+              
+              <div>
+                <input placeholder="Select Quantity" type="number" min="1" max="5">
+                <button id="Package-4">Add To Cart</button>
+              </div>
+          </div>
+        </div>
+      </section>
+      
+      <div id="Cart">
+        <div>
+          
+         <img src="./Images/Cart1.jpg" alt="">
+  
+          <table id="cart-items">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+  
+          <button
+            id="checkout_btn"
+            onclick="window.location.href ='Invoice.html'"
+          >
+            Checkout
+          </button>
+        </div>
+    </div>
+
+
+      <footer>
+       <h5></h5>
+      </footer>
+
+    <script src="app.js"></script>
+
+    <script>
+      // TODO: CHECK IF A USER IS LOGIN
+      const PACKAGE ={
+        "Package-1": {full_name: "Basic Package", price: 2765.00},
+        "Package-2": {full_name: "Standard Package", price: 6975.00},
+        "Package-3": {full_name: "Basic Water Treatment", price: 7750.00} ,
+        "Package-4": {full_name: "Standard Water Treatment", price: 11625.00} 
+      }
+      function refreshCart(){
+        var userCart = JSON.parse(localStorage.getItem("user")).cart;
+        
+        const cartTableBody = document.querySelector("#cart-items tbody")
+        cartTableBody.innerHTML = "";
+     
+        if (userCart === null) {
+          userCart = [];
+        }
+
+        userCart.forEach(item  =>{
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${item.full_name}</td>  
+            <td>${item.quantity}</td>
+            <td>\$${item.price}</td>
+            <td>\$${item.quantity*item.price}</td>
+          `;
+          cartTableBody.append(row);
+        });
+      };  
+
+      const addToCartBtns = document.querySelectorAll('#Rate button');
+      var user = JSON.parse(localStorage.getItem("user"));
+      var userCart = user.cart;
+      
+      refreshCart();
+
+
+        if (userCart === null) {
+          userCart = [];
+        }
+
+        userCart.forEach(item =>{
+          let btn = document.getElementById(`${item.package}`); 
+          btn.innerHTML = "Remove from Cart";
+          btn.parentElement.getElementsByTagName("input")[0].setAttribute("hidden", "");
+        });
+
+
+        addToCartBtns.forEach(btn => {
+            btn.addEventListener("click", (event) => {
+                let package = btn.id;
+                let quantity_input = btn.parentElement.getElementsByTagName("input")[0];
+
+                for(let i = 0; i < userCart.length; i++){
+                  if(userCart[i].package === package){
+                    btn.innerHTML = "Add to Cart";
+                    quantity_input.removeAttribute("hidden");
+
+                    userCart.splice(i, 1);
+                    user.cart = userCart;
+                    localStorage.setItem("user", JSON.stringify(user));
+                    refreshCart();
+                    update_users_array();
+                    return;
+                  }
+                }
+
+                let item = {
+                  package: package, 
+                  full_name: PACKAGE[package].full_name, 
+                  price: PACKAGE[package].price,
+                  quantity: quantity_input.value
+                };
+                btn.innerHTML = "Remove from Cart";
+                quantity_input.setAttribute("hidden", "");
+
+                userCart.push(item);
+                
+                
+                user.cart = userCart;
+                localStorage.setItem("user", JSON.stringify(user));
+
+                
+                refreshCart();
+                update_users_array();
+            });
+
+        });
+
+ </script>
+
+</body>
+</html>

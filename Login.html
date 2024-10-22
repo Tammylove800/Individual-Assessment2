@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+  <body>
+    <nav>
+      <img src="Images/logo.jpg" alt="Company Logo" class="Logo" />
+      <div>
+        <a href="Home.html">HOME</a>
+        <a href="Login.html">LOGIN</a>
+        <a href="Registration Form.html">FORM</a>
+        <a href="Services and Rate.html">SERVICES/RATE</a>
+        <a href="Invoice.html">INVOICE</a>
+        <a href="AboutUs.html">ABOUT US</a>
+        
+      </div>
+    </nav>
+	</br>
+	<div class = "container">
+    <form id = "Login">
+      <h4>Login</h4>
+			<input type='text' id='username' placeholder = 'Username' required>
+			<input type='password' id='password' placeholder = 'Password' required minlength="8">
+			<button type = "submit"> LOG IN </button>
+		</form>  
+
+
+      <div>
+        <h4>Register</h4>
+        <p>
+          Not yet a member with AquaCarePlus. 
+          Click the button to register.
+        </p>			
+        <button onclick="window.location.href = 'Registration Form.html'">REGISTER</button>
+      </div>
+
+	</div>
+  
+  <footer>
+    <h2>Discover the AquaCarePlus difference. Contact us today!</h2>
+    <br>
+  
+    <div>
+      <a href="tel:8763512761">Tel:(876)351-2761</a>
+      <a href="mailto:maragodbless@gmail.com">Email: maragodbless@gmail.com </a><br><br>
+      <a href="https://www.instagram.com/"><img src="./Images/Instagram_icon.png" alt=""></a>
+      <a href="https://www.facebook.com/"><img src="./Images/facebook-icon.jpg" alt=""></a>
+      
+    </div>
+
+  </footer>
+  <script src="app.js"></script>
+  
+  <script>
+    // Track login attempts
+    let loginAttempts = 0;
+
+    document.querySelector('form#Login').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form from submitting
+
+        // Get input values
+        const enteredUsername = document.getElementById('username').value;
+        const enteredPassword = document.getElementById('password').value;
+
+        // Simple validation for required fields
+        if (!enteredUsername || !enteredPassword) {
+            alert("All fields are required.");
+            return;
+        }
+
+        // Validate password length
+        if (enteredPassword.length < 8) {
+            alert("Password must be at least 8 characters.");
+            return;
+        }
+
+        // Check if the username and password are correct
+
+        const registerUsers = JSON.parse(localStorage.getItem("registerUsers"));
+
+        for(user of registerUsers){
+            if (user.password === enteredPassword && user.password === enteredPassword){
+                localStorage.setItem("user", JSON.stringify(user));
+                localStorage.setItem("isUserLogin", true);
+                
+                alert("Login successful!");
+                
+                window.location.href = "Services and Rate.html"; // Redirect to the products page
+                return;
+            }
+        }
+
+        
+        loginAttempts++;
+        if (loginAttempts >= 3) {
+            alert("Too many failed attempts.");
+        } else {
+            alert("Incorrect username or password. Please try again.");
+        }
+        
+    });
+  </script>
+  </body>
+</html>

@@ -1,0 +1,344 @@
+
+header {
+    background-image: url('Images/header.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 400px;
+    
+    
+}
+
+nav{
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    background-color: #024caa;
+
+}
+
+nav div{
+    margin-left: 50px;
+}
+nav a{
+    float: left;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 14px;
+  text-decoration: none;
+  font-size: 17px;
+  font-size: 1rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+nav a:hover{
+    background-color:#ffc67d;
+    color: black;
+}
+
+.Logo { 
+    width: 120px;  
+    height: 120px; 
+
+    border-radius: 50%;
+}
+
+.homepage-image {
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 1000%; 
+}
+header {
+    position: relative; 
+}
+
+header #head {
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 16px ;
+    width: 250px ;
+    background-color: white;
+    padding: 10px;
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+}
+#Advertising{
+    display:flex;
+    justify-content: center;
+}
+#Advertising div{
+   font-family: 'Times New Roman', Times, serif;
+    
+}
+
+footer{
+    background-color: #024caa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer img{
+    width: 30px;
+    height: 30px;
+}
+
+footer a{
+    padding: 0 20px ;
+    color: black;
+}
+
+#Service, #Rate>div{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#Service div{
+    padding: 10px;
+    margin: 10px 40px;
+    max-width: 230px;
+    border-radius: 16px;
+    background-color: #837fa5;
+   
+    
+}
+#Service img, #Service video{
+    width: 150px;
+    height: 150px;
+    padding: 1px;
+   
+    
+}
+
+#Rate .package{
+    padding: 10px;
+    margin: 10px 40px;
+    max-width: 220px;
+    border-radius: 16px;
+    background-color: #ffc67d;
+   
+    text-align: center;
+}
+
+#Rate .package{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+#Rate .package input{
+    height: 16px;
+    font-size: 1rem;
+}
+
+#Rate h2{
+    width: 100%;
+    text-align:center;
+    background-color: #007BFF;
+}
+
+#Cart{
+    width: 40%;
+
+}
+
+#Cart button{
+    width: fit-content;
+    padding: 10px 50px ;
+}
+
+#Cart table th, #Cart table td {
+    padding: 2px 60px ;
+  }
+#Cart img{
+    width: 50px;
+   
+}
+
+
+.container{
+  padding:0 0 100px;
+
+  color:#888;
+  width:80%;
+  font-family:'Karla';
+  margin:0 auto;
+  text-align:center;
+
+  display: flex;
+}
+.container form{
+    margin: 0 50px;
+
+}
+
+form#Register{
+    background: white;
+    padding: 20px;
+    border-radius: 6px;
+    border: 2px solid #ccc;
+    width: 500px;
+    margin: 0 auto;
+}
+
+#form button{
+    width: fit-content;
+    padding: 10px 50px ;
+}
+
+input{
+  font-family:'Ubuntu';
+  font-weight:300;
+  border:0;
+  border-bottom:1px solid #ff5407;
+  width:100%;
+  height:36px;
+  font-size:26px;
+}
+
+input:focus{
+  outline:none;
+  box-shadow:none;
+  background:#ffeae2;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+#Invoice{
+    width: 80%;
+    margin: 100px auto;
+    border: #0f1111 1px solid;
+    padding: 30px;
+    
+}
+#Invoice div{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    
+
+}
+#Invoice.div.Customer{
+    text-align: right;
+    font-family: 'Times New Roman', Times, serif;
+    
+
+}
+
+#Invoice img{
+    float: left;
+    width: 150px;
+    height: 150px;
+    
+    
+}
+
+#Background{
+    background-image: url('Images/back_imgage.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 800px;
+}
+
+#CEO{
+    padding: 30px;
+    margin: 10px 40px;
+    border-radius: 16px;
+    background-color: #ffffff;
+    position: absolute;
+    bottom: 2%;
+    left: 5%;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.invoice-box {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #eee;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+.company-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.company-details div {
+    width: 48%;
+}
+
+.invoice-details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.invoice-details th, .invoice-details td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+tfoot td {
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color:black;
+}

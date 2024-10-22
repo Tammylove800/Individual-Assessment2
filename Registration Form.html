@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="Style.css" />
+</head>
+<body>
+    <nav>
+        <img src="Images/logo.jpg" alt="Company Logo" class="Logo" />
+        <div>
+            <a href="Home.html">HOME</a>
+            <a href="Login.html">LOGIN</a>
+            <a href="Registration Form.html">FORM</a>
+            <a href="Services and Rate.html">SERVICES/RATE</a>
+            <a href="Invoice.html">INVOICE</a>
+            <a href="AboutUs.html">ABOUT US</a>
+            
+          </div>
+        </div>
+      </nav>
+      <br><br>
+    <h1 style="text-align:center">AquaCarePlus</h1>
+            
+            
+      
+      
+    <form id="Register">
+        <h4 style="text-align: center;">Registration Form</h4><br>
+        
+        <input type='text' id='name' placeholder='Name' required>
+        <input type='text' id='address' placeholder='Address' required>
+        <input type='text' id='username' placeholder='Create Username' required>
+        <input type='password' id='password' placeholder=' Create Password' required minlength="8">
+        
+
+        <button type="submit">REGISTER</button>
+    </form>
+
+    <div style="margin:100px auto 0; width:50%; text-align: center;">
+        <p>
+            Welcome back! <br>
+            Click below to login
+        </p>			
+        <button onclick="window.location.href = 'Login.html'">LOGIN</button>
+    </div>
+
+    <footer>
+        <h2>Discover the AquaCarePlus difference. Contact us today!</h2>
+        <br>
+      
+        <div>
+          <a href="tel:8763512761">Tel:(876)351-2761</a>
+          <a href="mailto:maragodbless@gmail.com">Email: maragodbless@gmail.com </a><br><br>
+          <a href="https://www.instagram.com/"><img src="./Images/Instagram_icon.png" alt=""></a>
+          <a href="https://www.facebook.com/"><img src="./Images/facebook-icon.jpg" alt=""></a>
+          
+        </div>
+  
+      </footer>
+
+      <script src="app.js"></script>
+
+    <script>
+      document.querySelector("form#Register").addEventListener("submit", function(event) {
+          event.preventDefault(); // Prevent form from submitting
+
+          // Get input values
+          const enteredName = document.getElementById('name').value;
+          const enteredAddress = document.getElementById('address').value;
+          const enteredUsername = document.getElementById('username').value;
+          const enteredPassword = document.getElementById('password').value;
+
+          // Simple validation for required fields
+          if (!enteredUsername || !enteredPassword || !enteredName || !enteredAddress) {
+              alert("All fields are required.");
+              return;
+          }
+
+          // Validate password length
+          if (enteredPassword.length < 8) {
+              alert("Password must be at least 8 characters.");
+              return;
+          }
+
+          // Add user login info to local storage array
+          const registerUsers = JSON.parse(localStorage.getItem("registerUsers"));
+          if (!registerUsers) {
+              registerUsers = [];
+          }
+
+
+          registerUsers.push({
+              username: enteredUsername,
+              password: enteredPassword,
+              name: enteredName,
+              address: enteredAddress,
+              cart: []
+          });
+          localStorage.setItem("registerUsers", JSON.stringify(registerUsers));
+
+          localStorage.setItem("isUserLogin", true);
+          localStorage.setItem("user", JSON.stringify({
+            username: enteredUsername,
+            password: enteredPassword,
+            name: enteredName,
+            address: enteredAddress,
+            cart: []
+          }));
+          
+
+          alert("Registration successful!");
+          window.location.href = "Services and Rate.html"; // Redirect to the products page
+      });
+    </script>
+    
+</body>
+</html>
